@@ -28,13 +28,17 @@ const PokeComponent = ({ id, winFunc, defeatFunc }) => {
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
             alt={pokeName}
           ></img>
-          <div>
-            <button onClick={() => winFunc(id)}>Le meto un meko</button>
-            <button onClick={() => defeatFunc(id)}>Kita kita bro</button>
+          <div className="container">
+            <button
+            className="btn btn-primary mx-2"
+             onClick={() => winFunc(id)}>Me lo hago</button>
+            <button
+            className="btn btn-danger mx-2"
+             onClick={() => defeatFunc(id)}>Me revienta</button>
           </div>
         </div>
       ) : (
-        <h1>No hay pokemon seleccionado</h1>
+        <h1>Cargando...</h1>
       )}
     </div>
   );
