@@ -11,6 +11,8 @@ const PokeView = () => {
   const [defeated, setDefeated] = useState([]);
   const [fighted, setFighted] = useState([]);
 
+  const [revancha, setRevancha] = useState(false);
+
   useEffect(() => {
     getRandomPoke()
   }, []);
@@ -21,10 +23,18 @@ const PokeView = () => {
     for (let i = 0; i < fighted.length; i++) {
       if (ranPoke === fighted[i]) {
         console.log('Pokemon repetido: ' + ranPoke)
-        getRandomPoke();
+        // getRandomPoke();
+        changeRevancha();
       }
     }
     setPokeId(ranPoke);
+  }
+
+  // TODO SI LE HE GANADO BUSCA VENGANZA
+  // TODO SI ME HA GANADO QUIERE DARME UNA SEGUNDA OPORTUNIDAD
+
+  const changeRevancha = () => {
+    setRevancha(!revancha);
   }
   const win = (id) => {
     setWinable([...winable, id]);
@@ -48,10 +58,11 @@ const PokeView = () => {
           id={pokeId}
           winFunc={win}
           defeatFunc={defeat}
+          revanchaBool={revancha}
         ></PokeComponent>
       </div>
       <div className="container">
-        {fighted.length != 0 && (
+        {fighted.length !== 0 && (
           <div className="container">            
             <div className="container">
               <table className="table">
