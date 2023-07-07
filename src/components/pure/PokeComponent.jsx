@@ -14,7 +14,7 @@ const PokeComponent = ({ id, winFunc, defeatFunc }) => {
         // console.log(response.data.abilities);
         setPokeName(response.data.forms[0].name);        
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log('Buscando pokemon'))
       // .finally(() => console.log("Peticion finalizada"));
   }, [id]);
 

@@ -7,12 +7,3 @@ export function getPokemon(id) {
         }
     })
 }
-
-export function getGenOne() {
-    return APIRequest.get("pokemon?limit=151", {
-      validateStatus: function (status) {
-        return status < 500;
-      },
-    });
-
-}

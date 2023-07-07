@@ -1,7 +1,6 @@
 import React from "react";
 import PokeComponent from "../pure/PokeComponent";
 import { useState, useEffect } from "react";
-import { getGenOne } from "../../services/axiosService";
 
 const PokeView = () => {
   const minID = 1;
@@ -21,21 +20,19 @@ const PokeView = () => {
 
     for (let i = 0; i < fighted.length; i++) {
       if (ranPoke === fighted[i]) {
-        newFight();
+        console.log('Pokemon repetido: ' + ranPoke)
+        getRandomPoke();
       }
     }
     setPokeId(ranPoke);
-    console.log(ranPoke);
   }
   const win = (id) => {
     setWinable([...winable, id]);
-    console.log(winable);
     newFight();
   };
 
   const defeat = (id) => {
     setDefeated([...defeated, id]);
-    console.log(defeated);
     newFight();
   };
 
