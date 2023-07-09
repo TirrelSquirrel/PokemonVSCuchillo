@@ -2,12 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getPokemon } from "../../services/axiosService";
 
-const PokeComponent = ({
-  id,
-  winFunc,
-  defeatFunc,
-  revanchaBool,
-}) => {
+const PokeComponent = ({ id, winFunc, defeatFunc, revanchaBool }) => {
   const [pokeName, setPokeName] = useState(null);
 
   useEffect(() => {
@@ -25,16 +20,29 @@ const PokeComponent = ({
     <div className="py-3">
       {pokeName != null ? (
         <div>
-          <h2 className="pt-3 font-weight-bold">
+          <h2 className="pt-1 font-weight-bold">
             ¿Ganarías a{" "}
             <span style={{ textTransform: "capitalize" }}>{pokeName}</span>?
           </h2>
-          {revanchaBool ? <h2 className="text-danger">Ahora viene en busca de venganza</h2> : null}
-          <img
-            style={{ width: "150px" }}
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-            alt={pokeName}
-          ></img>
+          {revanchaBool ? (
+            <div>
+              <h2 className="text-danger font-weight-bold">
+                Ahora viene en busca de venganza
+              </h2>
+              <img
+                style={{ width: "150px" }}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+                alt={pokeName}
+              ></img>
+            </div>
+          ) : (
+            <img
+              style={{ width: "150px" }}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+              alt={pokeName}
+            ></img>
+          )}
+
           <div className="container">
             <button
               className="btn btn-primary mx-2"

@@ -14,7 +14,7 @@ const PokeView = () => {
   const [revancha, setRevancha] = useState(false);
 
   useEffect(() => {
-    getRandomPoke()
+    getRandomPoke();
   }, []);
 
   const getRandomPoke = () => {
@@ -22,20 +22,20 @@ const PokeView = () => {
 
     for (let i = 0; i < fighted.length; i++) {
       if (ranPoke === fighted[i]) {
-        console.log('Pokemon repetido: ' + ranPoke)
+        console.log("Pokemon repetido: " + ranPoke);
         // getRandomPoke();
         changeRevancha();
       }
     }
     setPokeId(ranPoke);
-  }
+  };
 
   // TODO SI LE HE GANADO BUSCA VENGANZA
   // TODO SI ME HA GANADO QUIERE DARME UNA SEGUNDA OPORTUNIDAD
 
   const changeRevancha = () => {
     setRevancha(!revancha);
-  }
+  };
   const win = (id) => {
     setWinable([...winable, id]);
     newFight();
@@ -48,7 +48,8 @@ const PokeView = () => {
 
   const newFight = () => {
     setFighted([...fighted, pokeId]);
-    getRandomPoke()
+    getRandomPoke();
+    if (revancha) changeRevancha();
   };
 
   return (
@@ -63,21 +64,23 @@ const PokeView = () => {
       </div>
       <div className="container">
         {fighted.length !== 0 && (
-          <div className="container">            
+          <div className="container">
             <div className="container">
               <table className="table">
                 <thead>
                   <tr>
-                    <th className="col">Ganadas</th>
-                    <th className="col">Perdidas</th>
-                    <th className="col">Total</th>
+                    <th className="col text-light">Ganadas</th>
+                    <th className="col text-light">Perdidas</th>
+                    <th className="col text-light">Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{winable.length}</td>
-                    <td>{defeated.length}</td>
-                    <td>{winable.length - defeated.length}</td>
+                    <td className="text-light">{winable.length}</td>
+                    <td className="text-light">{defeated.length}</td>
+                    <td className="text-light">
+                      {winable.length - defeated.length}
+                    </td>
                   </tr>
                 </tbody>
               </table>

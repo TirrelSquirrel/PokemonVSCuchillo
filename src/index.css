@@ -6,7 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -14,4 +16,9 @@ code {
 
 table {
   table-layout: fixed;
+}
+
+.w-50 {
+  margin-left: 25%;
+  margin-top: 50px;
 }

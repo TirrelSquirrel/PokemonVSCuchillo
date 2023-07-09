@@ -1,9 +1,9 @@
-import './App.css';
-import Pokedex from './components/container/Pokedex';
+import "./App.css";
+import Pokedex from "./components/container/Pokedex";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App text-light">
       <Pokedex></Pokedex>
     </div>
   );
