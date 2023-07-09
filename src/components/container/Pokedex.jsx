@@ -3,7 +3,7 @@ import PokeView from './PokeView';
 
 const Pokedex = () => {
     return (
-      <div className="border border-primary-subtle rounded w-50">
+      <div className="border border-primary-subtle rounded m-4">
         <h1 className="pt-3 font-weight-bold text-info">DUELO A MUERTE A CUCHILLO</h1>
 
         <PokeView></PokeView>
